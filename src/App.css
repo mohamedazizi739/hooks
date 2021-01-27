@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  background-color: #a3ccc4;
+}
+.flex-container {
+  margin-left: 100px;
+  margin-right: 100px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.flex-container div {
+  margin: 10px;
+  text-align: center;
+}
+img {
+  height: 300px;
+  width: 200px;
+}
+.stars {
+  margin-left: 40%;
+}
+input {
+  margin-top: 20px;
+  margin-left: 40%;
+  font-size: large;
+}
+button {
+  margin: 20px;
+  background-color: green;
+  font-size: large;
+}
