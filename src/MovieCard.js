@@ -1,11 +1,10 @@
 import React from "react"
-import {Movies} from './data'
 import{FaStar} from 'react-icons/fa'
 
 
  const Moviecard=(props)=>{
    if(props.word !=""){
-    const filter=Movies.filter(movie=>{
+    const filter=props.Movies.filter(movie=>{
      return movie.name.toLowerCase().includes(props.word)
     })
 
@@ -30,7 +29,7 @@ import{FaStar} from 'react-icons/fa'
   if(props.rating===0){
   return(
    <div className="flex-container">
-    {Movies.map((movie,i)=>{
+    {props.Movies.map((movie,i)=>{
      return(
       <div key={i}>
        <img src={movie.image} alt=""/>
@@ -46,7 +45,7 @@ import{FaStar} from 'react-icons/fa'
    </div>
    )}
    //third return
-   let filtred=Movies.filter((movie)=>{return movie.stars===props.rating})
+   let filtred=props.Movies.filter((movie)=>{return movie.stars===props.rating})
    return(
    <div className="flex-container">
     {filtred.map((movie,i)=>{
