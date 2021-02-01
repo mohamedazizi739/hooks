@@ -1,9 +1,11 @@
 import React, { useState} from 'react';
+import {BrowserRouter as Router,Switch,Route,Link,useParams} from "react-router-dom";
 import './App.css';
 import Moviecard from "./MovieCard"
 import ReactStars from "react-rating-stars-component";
 import {Movies} from './data'
 import AddMovie from "./AddMovie"
+import Child from "./Child"
 function App() {
   const [rating, setRating] = useState(0);
   const [word, setword] = useState("");
@@ -15,7 +17,9 @@ function App() {
     window.location.reload(false);
   }
   return (
-    
+    <Router>
+      <Switch>
+        <Route exact path="/">
     <div className="App">
     <AddMovie AddNewMovie={AddNewMovie}></AddMovie>
     <input type="text" placeholder="Search.." size={20} onChange={v=>setword(v.target.value)}  >  
@@ -25,6 +29,11 @@ function App() {
     activeColor="red"/></div>
       <Moviecard rating={rating} word={word} Movies={movies} />
     </div>
+    </Route>
+
+    <Route path="/:id" children={<Child />} />
+    </Switch>
+    </Router>
   );
 }
 
